@@ -1,0 +1,37 @@
+{% extends 'main.html'%}
+
+{%block content%}
+
+<div class="">
+<form action="" class="" method="POST">
+    {%csrf_token%}
+    {%for field in rl1_form %}
+    <div class="">
+        <label for="">{{field.label}}</label>
+        <!-- {{field.label_tag}} -->
+        {{field}}
+
+        {% if field.help_text%}
+        <small style="color: gray;">{{field.help_text}}</small>
+        {%endif%}
+
+        {% for error in field.errors%}
+        <p style="color: red;">{{error}}</p>
+        {%endfor%}
+
+    </div>
+
+    {%endfor%}
+
+    {% if request.user.role == user.role %}
+
+    <button class="btn btn--main" type="submit">Creer</button>
+    <button class="btn btn--main" type="submit">Entregister</button>
+    <button class="btn btn--main" type="submit">Suprimer</button>
+    <button class="btn btn--main" type="submit">Valider</button>
+    {%endif%}
+
+
+</form>
+</div>
+{%endblock content%}

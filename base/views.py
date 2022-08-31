@@ -161,8 +161,14 @@ def home(request):
     return render(request, 'base/home.html')
 
 def rl1Page(request, pk):
-    user = RL1.objects.get(id=pk)
-    context = {'user' : user}
+    try:
+        user = RL1.objects.get(id=pk)
+    except:
+         return HttpResponse('pas de user')
+
+
+    user_log1 = RL1.objects.all()
+    context = {'user' : user, 'user_log1':user_log1}
 
     if request.POST:
         form = Rl1Form(request.POST)

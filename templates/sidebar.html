@@ -57,19 +57,19 @@
            
             <li class="nav-item">
 
-              <a class="nav-link pl-3" href="{% url 'respo_ca' request.user.id %}"><span class="ml-1 item-text"> Respo Chargee Affaire</span></a>
+              <a class="nav-link pl-3" href="{% url 'respo_ca'  %}"><span class="ml-1 item-text"> Respo Chargee Affaire</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link pl-3" href="{% url 'respo_log1' request.user.id %}"><span class="ml-1 item-text">Respo Logistique 1</span></a>
+                <a class="nav-link pl-3" href="{% url 'respo_log1' %}"><span class="ml-1 item-text">Respo Logistique 1</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link pl-3" href="./table_datatables.html"><span class="ml-1 item-text">Respo Logistique 2</span></a>
+                <a class="nav-link pl-3" href="{% url 'respo_log2' %}"><span class="ml-1 item-text">Respo Logistique 2</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link pl-3" href="./table_datatables.html"><span class="ml-1 item-text">Respo Financier </span></a>
+                <a class="nav-link pl-3" href="{% url 'respo_fin' %}"><span class="ml-1 item-text">Respo Financier </span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link pl-3" href="./table_datatables.html"><span class="ml-1 item-text">Respo Informatique</span></a>
+                <a class="nav-link pl-3" href="{% url 'respo_info' %}"><span class="ml-1 item-text">Respo Informatique</span></a>
               </li>
           </ul>
         </li>

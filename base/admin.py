@@ -8,11 +8,11 @@ from django.core.exceptions import ValidationError
 
 # Register your models here.
 
-from .models import RL1, RL2, Base, RespoFin, RespoINf, Roles, RchA
+from .models import RL1, RL2, Base, RespoFin, RespoINf, RchA
 
 admin.site.register(RchA)
+# need to remove role form admin panel
 
-admin.site.register(Roles)
 admin.site.register(RL1)
 admin.site.register(RL2)
 admin.site.register(RespoFin)

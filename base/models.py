@@ -2,7 +2,11 @@ from pyexpat import model
 from django import forms
 from tkinter import Widget
 from django.db import models
+
+from django.contrib.auth import get_user_model
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+
+
 
 
 # Create your models here.
@@ -14,10 +18,10 @@ user_roles = (
     ('responsable financier','Responsable Financier'),
     ('responsable logistique2','Responsable Logistique 2'),
     )
-class Roles(models.Model):
-    role = models.CharField(max_length=100, null = True)
-    def __str__(self):
-       return self.role
+# class Roles(models.Model):
+#     role = models.CharField(max_length=100, null = True)
+#     def __str__(self):
+#        return self.role
 
 
 class MyAccountManager(BaseUserManager):

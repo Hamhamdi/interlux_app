@@ -26,7 +26,7 @@ def loginPage(request):
             email = request.POST['email']
             role = request.POST['role']
             password = request.POST['password']
-            user = authenticate(email=email,role =role, password=password)
+            user = authenticate(email=email,role = role, password=password)
             if user:
 
                 login(request, user)
@@ -37,13 +37,13 @@ def loginPage(request):
                 print(user.username)
 
                 if user_role == "chargee affaire":
-                    return redirect('respo_ca', user.id)
+                    return redirect('respo_ca')
                 elif user_role == "responsable informatique":
                     return redirect('respo_info', user.id)
                 elif user_role == "responsable financier":
                     return redirect('respo_fin', user.id)
                 elif user_role == "responsable logistique1":
-                    return redirect('respo_log1', user.id)
+                    return redirect('respo_log1')
                 elif user_role == "responsable logistique2":
                     return redirect('respo_log2', user.id)
                 
@@ -160,15 +160,10 @@ def registerPage(request):
 def home(request):
     return render(request, 'base/home.html')
 
-def rl1Page(request, pk):
-    try:
-        user = RL1.objects.get(id=pk)
-    except:
-         return HttpResponse('pas de user')
-
+def rl1Page(request):
 
     user_log1 = RL1.objects.all()
-    context = {'user' : user, 'user_log1':user_log1}
+    context = {'user_log1':user_log1}
 
     if request.POST:
         form = Rl1Form(request.POST)
@@ -182,10 +177,10 @@ def rl1Page(request, pk):
         context['rl1_form'] = form
     return render(request, 'base/respo_log1.html', context)
 
-def rl2Page(request, pk):
-    user = RL2.objects.get(id=pk)
+def rl2Page(request):
+    user_log2 = RL2.objects.all()
 
-    context = {'user' : user}
+    context = {'user_log2' : user_log2}
 
     if request.POST:
         form = Rl2Form(request.POST)
@@ -200,9 +195,9 @@ def rl2Page(request, pk):
     return render(request, 'base/respo_log2.html', context)
 
 
-def rinfoPage(request, pk):
-    user = RespoINf.objects.get(id=pk)
-    context = {'user' : user}
+def rinfoPage(request):
+    user_info = RespoINf.objects.all()
+    context = {'user_info' : user_info}
 
     if request.POST:
         form = ResInf(request.POST)
@@ -217,9 +212,9 @@ def rinfoPage(request, pk):
     return render(request, 'base/respo_info.html', context)
 
 
-def rfinPage(request, pk):
-    user = RespoFin.objects.get(id=pk)
-    context = {'user' : user}    
+def rfinPage(request):
+    user_fin = RespoFin.objects.all()
+    context = {'user_fin' : user_fin}    
 
     if request.POST:
         form = ResFin(request.POST)
@@ -233,11 +228,11 @@ def rfinPage(request, pk):
         context['rfin_form'] = form
     return render(request, 'base/respo_fin.html', context)
 
-def RCa(request, pk):
-    user = RchA.objects.get(id=pk)
+def RCa(request):
+    # user = RchA.objects.get(id=rl)
     user_ca = RchA.objects.all()
+    context = {'user_ca' : user_ca}
 
-    context = {'user' : user, 'user_ca':user_ca}
 
     if request.POST:
         form = ResCa(request.POST)
@@ -252,10 +247,9 @@ def RCa(request, pk):
     context['rca_form'] = form
     return render(request, 'base/respo_ca.html', context)
 
-# def rCaPage(request, pk):
-#     user = RchA.objects.get(id=pk)
-#     context = {'user' : user}
-
-#     return render(request, 'base/respo_ca.html', context)
+# def hideRcaAction(request, pk):
+#     user_role = RchA.objects.get(id=pk)
+#     context = {'obj' : user_role}
+#     return render(request, 'base/hide_respo_ca.html', context)
 
 

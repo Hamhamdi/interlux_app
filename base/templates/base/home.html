@@ -5,11 +5,10 @@
 <main class="layout layout--3">
     <div class="container">
         <div> INTERLUX </div>
-        <p>@{{user.username}}</p>
 
       
 
-        <a href="{% url 'respo_ca' request.user.id %}" class="thread__authorInfo">
+        <a href="{% url 'respo_ca' %}" class="thread__authorInfo">
              respo ca
         </a>
         <a href="{% url 'respo_fin' request.user.id %}" class="thread__authorInfo">

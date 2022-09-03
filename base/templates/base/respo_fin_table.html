@@ -5,7 +5,7 @@
                 
 
                 {%if request.user.role == 'responsable financier'%}
-                    <button type="button" class="btn btn-outline-primary">Ajouter</button>
+                <a class="btn btn-outline-primary" href="{% url  'respo_ca_add'%}" >Ajouter</a>
                 {%endif%}
                 <button type="button" class="btn btn-outline-primary">Export</button>
 

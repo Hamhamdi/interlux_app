@@ -39,13 +39,13 @@ def loginPage(request):
                 if user_role == "chargee affaire":
                     return redirect('respo_ca')
                 elif user_role == "responsable informatique":
-                    return redirect('respo_info', user.id)
+                    return redirect('respo_info')
                 elif user_role == "responsable financier":
-                    return redirect('respo_fin', user.id)
+                    return redirect('respo_fin')
                 elif user_role == "responsable logistique1":
                     return redirect('respo_log1')
                 elif user_role == "responsable logistique2":
-                    return redirect('respo_log2', user.id)
+                    return redirect('respo_log2')
                 
                
             # except:
@@ -61,7 +61,9 @@ def loginPage(request):
     context['login_form'] = form
     return render(request, 'base/login.html', context)
 
-
+def logoutUser(request):
+    logout(request)
+    return redirect('home')
 
 # def login_view(request):
 
@@ -228,25 +230,29 @@ def rfinPage(request):
         context['rfin_form'] = form
     return render(request, 'base/respo_fin.html', context)
 
+
+@login_required(login_url='/login')
 def RCa(request):
-    # user = RchA.objects.get(id=rl)
     user_ca = RchA.objects.all()
     context = {'user_ca' : user_ca}
 
-
-    if request.POST:
-        form = ResCa(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('home')
-        else:
-            context['rca_form'] = form
-    else:  # GET request
-        form = ResCa()
-
-    context['rca_form'] = form
     return render(request, 'base/respo_ca.html', context)
 
+
+
+def addRCa(request):
+    
+    form = ResCa()
+
+    if request.method == 'POST':
+        form = ResCa(request.POST)
+        if form.is_valid():
+            resca =form.save(commit=False)
+            resca.save()
+            return redirect('respo_ca')
+        
+    context={'form': form}
+    return render(request, 'base/respo_ca_add.html', context)
 # def hideRcaAction(request, pk):
 #     user_role = RchA.objects.get(id=pk)
 #     context = {'obj' : user_role}

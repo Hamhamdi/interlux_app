@@ -5,7 +5,10 @@
                 
 
                 {%if request.user.role == 'chargee affaire'%}
-                    <button type="button" class="btn btn-outline-primary">Ajouter</button>
+          
+                    <a class="btn btn-outline-primary" href="{% url  'respo_ca_add'%}" >Ajouter</a>
+
+                    
                 {%endif%}
 <div class="row my-4">
     <div class="col-md-12">

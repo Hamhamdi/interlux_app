@@ -103,7 +103,7 @@ class RchA(models.Model):
         ordering = ['-updated', '-created']
 
     def __str__(self):
-       return self.nom
+       return str(self.n_Dossier)
 
 
 STATUT_IMP = (

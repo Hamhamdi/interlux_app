@@ -1,39 +1,72 @@
-{% extends 'main.html'%}
+{%extends 'main.html'%} 
+{%block content%} 
 
-{%block content%}
+{%include 'navbar.html'%} 
+{%include 'sidebar.html'%}
 
-<div class="layout__body">
-<form action="" class="" method="POST">
-      {%csrf_token%}
-    {%for field in rfin_form %}
-    <div class="">
-        <label for="">{{field.label}}</label>
-        <!-- {{field.label_tag}} -->
-        {{field}}
+<body class="vertical dark">
+    <main role="main" class="main-content">
 
-        {% if field.help_text%}
-        <small style="color: gray;">{{field.help_text}}</small>
-        {%endif%}
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <div class="wrapper">
+          <div class="row my-4">
+            <div class="col-md-12">
+              <div class="card shadow">
+                <div class="card-body">
+                  <form class="col-lg-6 col-md-8 col-10 mx-auto"  method="POST" >
+                    {% csrf_token %}
 
-        {% for error in field.errors%}
-        <p style="color: red;">{{error}}</p>
-        {%endfor%}
-
+                    <div class="mx-auto text-center my-4">
+                      <h2 class="my-3">Ajouter les informations</h2>
+                    </div>
+                    <div class="form-group">
+                      <label for="n_Dossier">Num de dossier</label>
+                      <input name="n_Dossier" type="number" class="form-control" id="inputEmail4"/>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="date_capf"> date du clôture administrative du payement fournisseur</label>
+                        <input
+                        name="date_capf"
+                          type="text"
+                          id="firstname"
+                          class="form-control"
+                        />
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="date_capp">date du clôture administrative du payement des partenaires</label>
+                        <input  name="date_capp" type="text" id="lastname" class="form-control" />
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="lastname">Client</label>
+                        <input name="client" type="text" id="lastname" class="form-control" />
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="lastname"
+                          >Date validation des conditions logistique</label
+                        >
+                        <input name="date_VCL" type="date" id="lastname" class="form-control" />
+                      </div>
+                    </div>
+                    <hr class="my-4" />
+                    <button
+                      class="btn btn-lg btn-primary btn-block"
+                      type="submit"
+                    >
+                      Ajouter
+                    </button>
+                    <p class="mt-5 mb-3 text-muted text-center">© 2022</p>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
-
-    {%endfor%}
-
-    {{user}}
-    {% if request.user.role == user.role %}
-    <button class="btn btn--main" type="submit">Creer</button>
-    <button class="btn btn--main" type="submit">Entregister</button>
-    <button class="btn btn--main" type="submit">Suprimer</button>
-    <button class="btn btn--main" type="submit">Valider</button>
-    {%endif%}
-
-
-
-</form>
-</div>
+  </div>
+    </main>
+</body>
 {%endblock content%}

@@ -1,0 +1,91 @@
+{%extends 'main.html'%} 
+{% load crispy_forms_tags %}
+
+{%block content%} 
+
+{%include 'navbar.html'%} 
+{%include 'sidebar.html'%}
+
+<body class="vertical dark">
+    <main role="main" class="main-content">
+
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <div class="wrapper">
+          <div class="row my-4">
+            <div class="col-md-12">
+              <div class="card shadow">
+                <div class="card-body">
+                    <form action="POST" method="post" class="col-lg-6 col-md-8 col-10 mx-auto" id="form" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <h5 class='text-center h2text'>Table</h5>
+                        <div class="form-group">
+                          <input type="text" pattern="^[A-Z][a-z]+" required="required"class="textinput textInput form-control" name="modelname" placeholder="Entrez le nom du table"/>
+                          <label class="control-label" for="input">le nom du table</label>
+                                <i class="bar"></i>
+                                <i class="input-error">Veuillez entrer le nom du table (Exemple : Voiture)</i>
+                        </div>
+                        <h5 class='text-center h2text' id="field1">Champs</h5>
+                            <div class="form-group">
+                          <input type="text" pattern="[a-zA-Z]+" required="required" name="field1" class="textinput textInput form-control" placeholder="Entrez le nom du champ"/>
+                          <label class="control-label" for="input">le nom du champ</label>
+                                <i class="bar"></i>
+                                <i class="input-error">Veuillez entrer le nom du champ (Exemple : dateArivee)</i>
+                        </div>
+                        <div class="form-group">
+                          <select name="datatype1" class=" select form-control" required="required">
+                            <option value="character">Char</option>
+                            <option value="text">Text</option>
+                            <option value="integer">Integer</option>
+                            <option value="float">Float</option>
+                            <option value="boolean">Boolean</option>
+                            <option value="date">DateTime</option>
+                          </select>
+                          <label class="control-label" for="select">Sélectionnez le type de données</label><i class="bar"></i>
+                        </div>
+                        <div class="form-group">
+                         <input type="number" min="0" max="6000" class="textinput textInput form-control" required="required" name="maxlen1" placeholder="Entrez le max"/>
+                         <label class="control-label" for="input">Maxlength</label>
+                         <i class="bar"></i>
+                         <i class="input-error">Veuillez saisir un entier maxlength (0 - 6000)</i>
+                        </div>
+                        <div class="form-group">
+                          <select name="null1" class=" select form-control" required="required">
+                            <option value="False">False</option>
+                            <option value="True">True</option>
+                          </select>
+                          <label class="control-label" for="select">Choisissez null ou non ?</label><i class="bar"></i>
+                        </div>
+                        <div class="form-group">
+                          <select name="unique1" class=" select form-control" required="required">
+                            <option value="False">False</option>
+                            <option value="True">True</option>
+                          </select>
+                          <label class="control-label" for="select">Choisissez unique u non ?</label>
+                          <i class="bar"></i>
+                        </div>
+                        <div class="row justify-content flex-wrap" id="buttonArea">
+                          <div class="col-sm-4">
+                            <div class="button-container">
+                              <button class="btn btn-lg btn-primary btn-block" type="button"  ><span class="fa fa-plus">+</span></button>
+                            </div>
+                          </div>
+                          <div class="col-sm-4 ml-3">
+                           
+                              <button class="btn btn-lg btn-primary btn-block" type="submit"  ><span>SUBMIT</span></button>
+                           
+                          </div>
+                        </div>
+                    </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    </main>
+</body>
+{%endblock content%}

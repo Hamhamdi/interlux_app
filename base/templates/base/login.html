@@ -1,4 +1,6 @@
 {% extends 'main.html'%}
+{% load crispy_forms_tags %}
+
 
 {%block content%}
 <!-- <body class="vertical dark">
@@ -47,7 +49,39 @@
       <div class="row align-items-center h-100">
         <form class="col-lg-3 col-md-4 col-10 mx-auto text-center"  method="POST">
             {%csrf_token%}
-          <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="./index.html">
+            <a class="navbar-brand mx-auto mt-2 flex-fill text-center" >
+              <img style="width: 180px; margin-bottom: 5px;" src="/static/images/cropped-logo-interlux-1-1536x883-1-min.png" alt="">
+
+            </a>
+
+            {{login_form|crispy}}
+
+
+
+
+
+
+            <button  class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <!-- <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="./index.html">
             <svg version="1.1" id="logo" class="navbar-brand-img brand-md" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 120 120" xml:space="preserve">
               <g>
                 <polygon class="st0" points="78,105 15,105 24,87 87,87 	" />
@@ -57,8 +91,8 @@
             </svg>
           </a>
           <h1 class="h6 mb-3">Sign in</h1>
-          <div class="form-group">
-            <div class="form-group">
+          <div class="form-group"> -->
+            <!-- <div class="form-group">
               <select name="role" class="form-control form-control-lg" aria-label="Default select example">
                 <option  selected>Selectionner un Role</option>
                 <option value="responsable informatique">responsable informatique</option>
@@ -69,9 +103,9 @@
 
 
               </select>
-            </div>
-            <label for="inputEmail" class="sr-only">Username</label>
-            <input name="email" type="email" id="inputEmail" class="form-control form-control-lg" placeholder="Username" required="" autofocus="">
+            </div> -->
+            <!-- <label for="inputEmail" class="sr-only">Username</label>
+            <input name="username" type="username" id="inputEmail" class="form-control form-control-lg" placeholder="Username" required="" autofocus="">
           </div>
           <div class="form-group">
             <label for="inputPassword" class="sr-only">Password</label>
@@ -82,7 +116,11 @@
               <input type="checkbox" value="remember-me"> Stay logged in </label>
           </div>
           <button  class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
-          <p class="mt-5 mb-3 text-muted">© 2022</p>
+          {%for message in messages %}
+          <p>{{message}}</p>
+
+          {%endfor%}
+          <p class="mt-5 mb-3 text-muted">© 2022</p> -->
         </form>
       </div>
     </div>

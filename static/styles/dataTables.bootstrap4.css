@@ -5,11 +5,14 @@ table.dataTable {
   max-width: none !important;
   border-collapse: separate !important;
   border-spacing: 0;
+  line-height: 1;
+  font-size: small;
 }
 table.dataTable td,
 table.dataTable th {
   -webkit-box-sizing: content-box;
   box-sizing: content-box;
+
 }
 table.dataTable td.dataTables_empty,
 table.dataTable th.dataTables_empty {

@@ -1,4 +1,6 @@
 {%extends 'main.html'%} 
+{% load crispy_forms_tags %}
+
 {%block content%} 
 
 {%include 'navbar.html'%} 
@@ -21,42 +23,23 @@
                     <div class="mx-auto text-center my-4">
                       <h2 class="my-3">Ajouter les informations</h2>
                     </div>
-                    <div class="form-group">
-                      <label for="n_Dossier">Num de dossier</label>
-                      <input name="n_Dossier" type="number" class="form-control" id="inputEmail4"/>
-                    </div>
-                    <div class="form-row">
-                      <div class="form-group col-md-6">
-                        <label for="date_capf"> date du clôture administrative du payement fournisseur</label>
-                        <input
-                        name="date_capf"
-                          type="text"
-                          id="firstname"
-                          class="form-control"
-                        />
-                      </div>
-                      <div class="form-group col-md-6">
-                        <label for="date_capp">date du clôture administrative du payement des partenaires</label>
-                        <input  name="date_capp" type="text" id="lastname" class="form-control" />
-                      </div>
-                      <div class="form-group col-md-6">
-                        <label for="lastname">Client</label>
-                        <input name="client" type="text" id="lastname" class="form-control" />
-                      </div>
-                      <div class="form-group col-md-6">
-                        <label for="lastname"
-                          >Date validation des conditions logistique</label
-                        >
-                        <input name="date_VCL" type="date" id="lastname" class="form-control" />
-                      </div>
-                    </div>
+                  
+                    {{form|crispy}}
+
                     <hr class="my-4" />
                     <button
                       class="btn btn-lg btn-primary btn-block"
                       type="submit"
+                      name="btn_submit"
                     >
-                      Ajouter
+                      Valider
                     </button>
+                    <button
+                    class="btn btn-lg btn-primary btn-block"
+                    type=""
+                  >
+                    Enregister
+                  </button>
                     <p class="mt-5 mb-3 text-muted text-center">© 2022</p>
                   </form>
                 </div>
@@ -68,5 +51,7 @@
     </div>
   </div>
     </main>
-</body>
+    {%include 'notification.html'%}
+
+  </body>
 {%endblock content%}

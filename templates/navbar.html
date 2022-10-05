@@ -20,10 +20,25 @@
         </a>
       </li>
       <li class="nav-item nav-notif">
+
         <a class="nav-link text-muted my-2" href="./#" data-toggle="modal" data-target=".modal-notif">
           <span class="fe fe-bell fe-16"></span>
-          <span class="dot dot-md bg-success"></span>
+          {% if general_datable_1.count > 0 %}
+          <span class="dot dot-md bg-success" style="color:white;
+          position: absolute;
+          border-radius: 50%;
+          font-size: 13px;
+          width: 16px;
+          height: 16px;
+          display: flex;
+          justify-content: center;
+          margin-top: -30px;
+          margin-left: 8px;">{{general_datable_1.count}}</span>
+          {%endif%}
+
         </a>
+
+ 
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle text-muted pr-0" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -31,11 +46,20 @@
             <img src="/static/assets/avatars/face-1.jpg" alt="..." class="avatar-img rounded-circle">
           </span>
         </a>
+        {% if request.user.is_authenticated%}
+
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="#">Profile</a>
           <a class="dropdown-item" href="{%url 'logout'%}">Logout</a>
         
         </div>
+        {%else%}
+
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="{%url 'login'%}">Login</a>
+        </div>
+
+        {%endif%}
       </li>
     </ul>
   </nav>

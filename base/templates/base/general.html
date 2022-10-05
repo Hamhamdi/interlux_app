@@ -5,22 +5,27 @@
     
 <body class="vertical  dark  ">
     <div class="wrapper">
+        {{ extra_context }}
+
       
         {%include 'navbar.html'%}
         {%include 'sidebar.html'%}
+ 
 
 
-     
+    
 
-    {%include 'base/respo_ca_table.html'%}
+        {%include 'base/general_db.html'%}
 
 
 
 
     </div>  
-  
-  
+    
+    
+    
 </body>
+{%include 'notification.html'%}
 
 
 {%endblock content%}

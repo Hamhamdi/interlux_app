@@ -48,7 +48,16 @@
 *::before,
 *::after {
   box-sizing: border-box; }
-
+.n_dossier{
+  color: black;
+  font-weight: 400;
+}
+.important{
+  background-color: #09f3ad1f;
+}
+.cloture{
+  background-color: #09f3ade9;
+}
 html {
   font-family: sans-serif;
   line-height: 1.15;
@@ -521,8 +530,7 @@ pre {
 .row {
   display: flex;
   flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px; }
+  }
 
 .no-gutters {
   margin-right: 0;
@@ -540,8 +548,8 @@ pre {
 .col-xl-auto {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px; }
+  /* padding-right: 15px; */
+  /* padding-left: 15px; */ }
 
 .col {
   flex-basis: 0;
@@ -1186,12 +1194,14 @@ pre {
   color: #6c757d; }
   .table th,
   .table td {
-    padding: 0.75rem;
+    padding: 0.5rem;
     vertical-align: top;
-    border-top: 1px solid #e9ecef; }
+    border: 0.5px solid #6e6b6b; }
   .table thead th {
     vertical-align: bottom;
-    border-bottom: 2px solid #e9ecef; }
+    border-bottom: 2px solid #ced4da;
+    background-color: #1b68ff9e;
+   }
   .table tbody + tbody {
     border-top: 2px solid #e9ecef; }
 
@@ -5009,7 +5019,8 @@ button.bg-dark:focus {
   flex-direction: column-reverse !important; }
 
 .flex-wrap {
-  flex-wrap: wrap !important; }
+  flex-wrap: wrap !important;
+  justify-content: space-around; }
 
 .flex-nowrap {
   flex-wrap: nowrap !important; }
@@ -5054,7 +5065,9 @@ button.bg-dark:focus {
   align-items: flex-end !important; }
 
 .align-items-center {
-  align-items: center !important; }
+  align-items: center !important;
+  margin-top: 5px;
+ }
 
 .align-items-baseline {
   align-items: baseline !important; }
@@ -7130,7 +7143,8 @@ a.text-dark:hover, a.text-dark:focus {
     border-collapse: collapse !important; }
     .table td,
     .table th {
-      background-color: #ffffff !important; }
+      background-color: #ffffff !important;
+     }
   .table-bordered th,
   .table-bordered td {
     border: 1px solid #dee2e6 !important; }
@@ -7455,8 +7469,8 @@ button:focus {
 
 /* collapsed layout with sidebar */
 .vertical.collapsed .sidebar-left, .vertical.narrow .sidebar-left {
-  min-width: 5rem;
-  width: 5rem; }
+   min-width: 0rem;
+  width: 0rem;  }
   .vertical.collapsed .sidebar-left .navbar-toggler,
   .vertical.collapsed .sidebar-left .nav-heading,
   .vertical.collapsed .sidebar-left .btn-box, .vertical.narrow .sidebar-left .navbar-toggler,
@@ -7475,7 +7489,7 @@ button:focus {
 .vertical.collapsed .main-content,
 .vertical.collapsed .topnav, .vertical.narrow .main-content,
 .vertical.narrow .topnav {
-  margin-left: 5rem; }
+  margin-left: 0rem; }
 
 .horizontal .main-content {
   margin: 2rem 0; }
@@ -7491,8 +7505,8 @@ button:focus {
 .narrow.open .sidebar-left {
   overflow-y: auto;
   overflow-x: hidden;
-  min-width: 16rem;
-  width: 16rem;
+  min-width: 13rem;
+  width: 13rem;
   height: 100%;
   position: fixed;
   z-index: 1000;
@@ -7544,7 +7558,7 @@ button:focus {
 .vertical .topnav,
 .vertical.hover .topnav,
 .narrow.open .topnav {
-  margin-left: 16rem;
+  margin-left: 12rem;
   padding-left: 2.2rem;
   padding-right: 2.2rem; }
   .vertical .topnav .nav-notif,
@@ -7559,7 +7573,7 @@ button:focus {
 .vertical .main-content,
 .vertical.hover .main-content,
 .narrow.open .main-content {
-  margin-left: 16rem;
+  margin-left: 12rem;
   overflow: hidden;
   padding: 1.2rem;
   min-height: 100vh;
@@ -7620,7 +7634,7 @@ select {
   vertical-align: middle !important; }
 
 .table thead th {
-  font-weight: 400; }
+  font-weight: 600; }
 
 .table tbody tr th {
   font-weight: 400; }
@@ -7931,8 +7945,8 @@ select {
     padding-left: 1.2rem;
     padding-right: 1.2rem; }
   .vertical.collapsed .sidebar-left, .vertical.narrow.open .sidebar-left {
-    min-width: 16rem;
-    width: 16rem; }
+    min-width: 13rem;
+    width: 13rem; }
     .vertical.collapsed .sidebar-left .nav-heading,
     .vertical.collapsed .sidebar-left .btn-box, .vertical.narrow.open .sidebar-left .nav-heading,
     .vertical.narrow.open .sidebar-left .btn-box {
@@ -7951,7 +7965,7 @@ select {
   .vertical.collapsed .topnav,
   .vertical.collapsed .main-content, .vertical.narrow.open .topnav,
   .vertical.narrow.open .main-content {
-    margin-left: 16rem; }
+    margin-left: 13rem; }
   .topnav .form-inline {
     display: none; }
   .horizontal .navbar-nav .dropdown-menu {
@@ -8115,7 +8129,8 @@ svg.navbar-brand-img {
 .table {
   color: #6c757d; }
   .table thead th {
-    color: #ced4da; }
+    color: whitesmoke;
+   }
   .table tbody tr th {
     color: #001a4e; }
   .table tr.collapse {

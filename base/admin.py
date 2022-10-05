@@ -8,15 +8,14 @@ from django.core.exceptions import ValidationError
 
 # Register your models here.
 
-from .models import RL1, RL2, Base, RespoFin, RespoINf, RchA
+from .models import  Base, GeneralDTable
 
-admin.site.register(RchA)
+
+admin.site.register(GeneralDTable)
+
 # need to remove role form admin panel
 
-admin.site.register(RL1)
-admin.site.register(RL2)
-admin.site.register(RespoFin)
-admin.site.register(RespoINf)
+
 
 
 
@@ -71,7 +70,7 @@ class BaseAdmin(UserAdmin):
     list_filter = ('is_admin',)
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
-        ('Personal info', {'fields': ('role','username')}),
+        ('Personal info', {'fields': ('role','etape','username')}),
         ('Permissions', {'fields': ('is_admin','is_staff','is_superuser', 'is_active')}),
     )
     # add_fieldsets is not a standard ModelAdmin attribute. UserAdmin
@@ -79,7 +78,7 @@ class BaseAdmin(UserAdmin):
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('email', 'role', 'username' , 'password1', 'password2'),
+            'fields': ('email', 'role','etape', 'username' , 'password1', 'password2'),
         }),
     )
     search_fields = ('email',)

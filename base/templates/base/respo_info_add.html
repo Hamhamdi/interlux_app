@@ -1,39 +1,58 @@
-{% extends 'main.html'%}
+{%extends 'main.html'%} 
+{% load crispy_forms_tags %}
 
-{%block content%}
+{%block content%} 
 
-<div class="layout__body">
-<form action="" class="" method="POST">
-    {%csrf_token%}
-    {%for field in rinf_form %}
-    <div class="">
-        <label for="">{{field.label}}</label>
-        <!-- {{field.label_tag}} -->
-        {{field}}
+{%include 'navbar.html'%} 
+{%include 'sidebar.html'%}
 
-        {% if field.help_text%}
-        <small style="color: gray;">{{field.help_text}}</small>
-        {%endif%}
+<body class="vertical dark">
+    <main role="main" class="main-content">
 
-        {% for error in field.errors%}
-        <p style="color: red;">{{error}}</p>
-        {%endfor%}
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <div class="wrapper">
+          <div class="row my-4">
+            <div class="col-md-12">
+              <div class="card shadow">
+                <div class="card-body">
+                  <form class="col-lg-6 col-md-8 col-10 mx-auto"  method="POST" >
+                    {% csrf_token %}
+                   
+                    
+                    <div class="">
+                        {{Infform|crispy}}
+                      </div>
+                    
 
+ 
+                  
+                    <button
+                      class="btn btn-lg btn-primary btn-block"
+                      type="submit"
+                      name="btn_submit"
+                    >
+                      Valider
+                    </button>
+                    <button
+                    class="btn btn-lg btn-primary btn-block"
+                    type=""
+                  >
+                    Enregister
+                  </button>
+
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+    </main>
+    {%include 'notification.html'%}
 
-    {%endfor%}
-
-    {% if request.user.role == user.role %}
-
-    <button class="btn btn--main" type="submit">Creer</button>
-    <button class="btn btn--main" type="submit">Entregister</button>
-    <button class="btn btn--main" type="submit">Suprimer</button>
-    <button class="btn btn--main" type="submit">Valider</button>
-    <p>@{{user.username}}</p>
-    {%endif%}
-
-
-
-</form>
-</div>
+</body>
 {%endblock content%}
